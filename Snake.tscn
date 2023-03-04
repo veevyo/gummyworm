@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://headPart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maincode.gd" type="Script" id=2]
+[ext_resource path="res://headPart.gd" type="Script" id=3]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="headPart" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.117
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
