@@ -3,6 +3,7 @@ extends Node2D
 var bodyPart = preload("res://bodyPart.tscn");
 onready var headPart = get_node("headPart");
 var direction = Vector2(0,1);
+var directionTitle = "none"
 var segments = [];
 
 # Called when the node enters the scene tree for the first time.
@@ -18,14 +19,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_down") && directionTitle != "up":
 		direction = Vector2(0,1);
-	if Input.is_action_just_pressed("ui_up"):
+		directionTitle = "down"
+	if Input.is_action_just_pressed("ui_up") && directionTitle != "down":
 		direction = Vector2(0,-1);
-	if Input.is_action_just_pressed("ui_left"):
+		directionTitle = "up"
+	if Input.is_action_just_pressed("ui_left") && directionTitle != "right":
 		direction = Vector2(-1,0);
-	if Input.is_action_just_pressed("ui_right"):
+		directionTitle = "left"
+	if Input.is_action_just_pressed("ui_right") && directionTitle != "left":
 		direction = Vector2(1,0);
+		directionTitle = "right"
 
 func update_position():
 	for x in range(segments.size()-1, -1, -1):
