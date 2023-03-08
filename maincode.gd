@@ -3,7 +3,7 @@ extends Node2D
 var bodyPart = preload("res://bodyPart.tscn");
 onready var headPart = get_node("headPart");
 var direction = Vector2(0,1);
-var directionTitle = "none"
+var directionTitle = "down"
 var segments = [];
 
 # Called when the node enters the scene tree for the first time.

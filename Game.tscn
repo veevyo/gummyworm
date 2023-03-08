@@ -19,8 +19,8 @@ position = Vector2( 407, 147 )
 [node name="Label" type="Label" parent="."]
 margin_left = 621.0
 margin_top = 4.0
-margin_right = 873.0
-margin_bottom = 127.0
+margin_right = 637.0
+margin_bottom = 18.0
 text = "00"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
