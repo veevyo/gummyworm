@@ -11,12 +11,13 @@ config_version=4
 [application]
 
 config/name="worm"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Start.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://Globals.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 

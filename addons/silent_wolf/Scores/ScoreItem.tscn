@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 80
+font_data = ExtResource( 1 )
+
+[node name="ScoreItem" type="Panel"]
+margin_right = 782.0
+margin_bottom = 109.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 782, 76 )
+rect_scale = Vector2( 0.314654, 0.61659 )
+custom_styles/panel = SubResource( 6 )
+
+[node name="PlayerName" type="RichTextLabel" parent="."]
+margin_left = 6.35617
+margin_top = 4.86547
+margin_right = 1289.36
+margin_bottom = 149.865
+custom_fonts/normal_font = SubResource( 7 )
+text = "1. Test"
+
+[node name="Score" type="Label" parent="."]
+margin_left = 429.043
+margin_top = -3.24364
+margin_right = 778.043
+margin_bottom = 91.7564
+rect_scale = Vector2( 1, 0.819131 )
+custom_fonts/font = SubResource( 8 )
+text = "13"
+align = 2
+valign = 1

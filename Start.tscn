@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://candy5.jpg" type="Texture" id=2]
+[ext_resource path="res://Start.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Roboto-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+outline_size = 5
+outline_color = Color( 0.262745, 0.262745, 0.262745, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 90
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Roboto-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = SubResource( 4 )
+
+[node name="Start" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 325, 223 )
+scale = Vector2( 0.555833, 0.555833 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 14.0
+margin_right = 824.0
+margin_bottom = 467.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Gummy Worm Snake"
+
+[node name="Play" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 249.0
+margin_right = 199.0
+margin_bottom = 361.0
+custom_fonts/font = SubResource( 3 )
+text = "Play"
+
+[node name="Leaderboard" type="Button" parent="."]
+margin_left = 14.0
+margin_top = 393.0
+margin_right = 430.0
+margin_bottom = 459.0
+custom_fonts/font = SubResource( 5 )
+text = "View Leaderboard"
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_Leaderboard_pressed"]

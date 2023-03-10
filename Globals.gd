@@ -13,15 +13,16 @@ var cellSize = 32
 var highscore = 0
 
 func eat_food():
-	snake.add_segment();
+	get_node("/root/Game/Snake").add_segment();
 	highscore += 1
-	highscoreLabel.text = str(highscore).pad_zeros(2)
+	get_node("/root/Game/Label").text = str(highscore).pad_zeros(2)
 	place_food()
+	
 
 func place_food():
 	var food = foodScene.instance()
 	food.global_position = get_random_grid_pos()
-	main.add_child(food)
+	get_node("/root/Game").add_child(food)
 	
 func get_random_grid_pos():
 	var possible_positions = []
@@ -29,7 +30,7 @@ func get_random_grid_pos():
 		for y in gridSize.y:
 			possible_positions.append(Vector2(x * cellSize, y * cellSize))
 	
-	for segment in snake.segments:
+	for segment in get_node("/root/Game/Snake").segments:
 		possible_positions.erase(segment.global_position)
 		
 	randomize()
@@ -39,21 +40,24 @@ func get_random_grid_pos():
 
 func reset_game():
 	snake = snakeScene.instance()
-	main.add_child(snake)
+	get_node("/root/Game").add_child(snake)
 	reset_highscore()
 
 func reset_highscore():
 	highscore = 0
-	highscoreLabel.text = "00"
+	get_node("/root/Game/Label").text = "00"
 
 func game_over():
-	snake.queue_free()
+	get_node("/root/Game/Snake").queue_free()
 	var overlay = gameOverScene.instance()
-	main.add_child(overlay)
+	get_node("/root/Game").add_child(overlay)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	#if !is_instance_valid(snake) || !is_instance_valid(snakeScene):
+		#get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
